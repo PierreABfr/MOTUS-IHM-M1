@@ -1,6 +1,14 @@
 # MOTUS-IHM-M1
 Motus sur Web en JavaScript/css/html
 
+## Projet
+### Description
+Motus provient d'un jeu télévisé diffusé sur France 2.
+Le jeu consiste à deviner un mot en proposant d'autres mots, avec comme indication, si une lettre est bien placée, ou si elle est présente, mais mal placée.
+### Objectifs
+1) t
+2) t 
+
 ## Critères d’évaluation
 - Être structuré en utilisant des flexbox
 - Utiliser les styles css pour avoir, à minima, des titres (\<h1> et/ou \<h2> et/ou \<h3>) personnalisés
