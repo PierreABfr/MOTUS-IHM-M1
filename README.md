@@ -14,7 +14,10 @@ Le jeu consiste à deviner un mot en proposant d'autres mots, avec comme indicat
 5) L'utilisateur aura 5 tentatives pour deviner le mot caché, s'il devine le mot en 5 tentatives ou moins, il à gagné, sinon il a perdu.
 
 #### Pour une future version, améliorations envisageables :
-
+- Pouvoir choisir la longueur du mot à deviner
+- Pouvoir paramètrer les contraintes (nombre de tentatives, chronomètre, ...)
+- Challenges : Bloquer les verbes, champs lexicaux, ...
+- Pouvoir jouer à plusieurs
 
 ## Critères d’évaluation
 - Être structuré en utilisant des flexbox
