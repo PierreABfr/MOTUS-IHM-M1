@@ -1,9 +1,11 @@
 
 /**
  * fonction obtenirMotAleatoire
- * Sortie : (String) Mot
+ * Remplace le contenu de l'élément par un mot aléatoire
+ * Entrée: (DOM élément) element
  */
-function obtenirMotAleatoire(){
+function obtenirMotAleatoire(element){
+    if (element == null) return;
     var fichier = new XMLHttpRequest();
     fichier.open("GET", "/assets/ods6.txt", true);
     fichier.onreadystatechange = function () {
@@ -13,7 +15,7 @@ function obtenirMotAleatoire(){
                 var motsAleatoires = texteBrut.split("\n");
                 var variabletoire = Math.floor(Math.random() * motsAleatoires.length);
                 //console.log(motsAleatoires[variabletoire])
-                return motsAleatoires[variabletoire]
+                document.getElementById("motCache").innerText = motsAleatoires[variabletoire]
             }
         }
     }
@@ -30,8 +32,7 @@ function verifierExistanceMot(mot){
 }
 
 function main(){
-    console.log("Mot aléatoire:")
-    var motAleatoire = obtenirMotAleatoire();
-    console.log(motAleatoire);
+    console.log("obtenirMotAleatoire")
+    obtenirMotAleatoire("motCache");
 }
 main()
