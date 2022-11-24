@@ -1,0 +1,58 @@
+#grilleMotus{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+}
+
+.motusLigne{
+    display: flex;
+    flex-direction: row;
+    padding: 2px;
+}
+
+.motusBoite{
+    background-color: blueviolet;
+    padding: 2px;
+    margin: 2px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 45px;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+tr{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#boutonValider{
+    background:linear-gradient(to bottom, #44c767 5%, #5cbf2a 100%);
+    background-color:#44c767;
+    border-radius:28px;
+    border:1px solid #18ab29;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:17px;
+    padding:16px 31px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #2f6627;
+}
+
+input{
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
