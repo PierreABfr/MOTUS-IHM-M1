@@ -1,5 +1,5 @@
 # MOTUS-IHM-M1
-Motus sur Web en JavaScript/css/html dans le cadre de l'UE IHM (Interface Homme-Machine) en Master 1 à l'UBO (Université de Brest Occidentale)
+Motus sur Web en JavaScript/css/html dans le cadre de l'UE IHM (Interface Homme-Machine) en Master 1 à l'UBO (Université de Brest Occidentale) pour le **8 Décembre 2022**
 
 ## Projet
 ### Description
