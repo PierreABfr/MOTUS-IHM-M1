@@ -3,8 +3,23 @@ h1 {
     text-shadow: 1px 1px 0px #000000
 }
 
+html, body { height : 80%; }
+
 body{
     background-image: url("./assets/bg_motus.jpg");
+    margin:0;
+    padding:0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.page_principale{
+    display: flex;
+    flex: 1;
+    flex-direction : column ;
+    justify-content : center ;
+    width: 100%;
+    height: 100%;
 }
 .flexTitre {
     display : flex;
@@ -13,17 +28,31 @@ body{
     align-items : center;
     justify-content : space-evenly;
     flex-direction : column-reverse;
+    margin-bottom: 10px;
+}
+.remplissage{
+    display : flex ;
+    flex-direction : column ;
+    justify-content : space-evenly;
+    align-items : center;
+    width : 100% ;
+    height: 100%;
+    margin: auto;
 }
 
 .flexjeu{
     display: flex;
-    width: 50%;
-    height: 50%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
     align-items: center;
-    overflow: visible;
     border-radius: 3em;
+    border-style: solid;
     background-color: #0bccef;
-    padding: 1rem;
+    margin: auto;
+    /*padding: 1rem;*/
 }
 
 img{
@@ -42,13 +71,12 @@ img{
     align-content: center;
     width: 10em;
     height: 5em;
-    margin-top: 30em;
+    /*margin-top: 50%;*/
 }
 
 .wrapper {
     display: flex;
     flex-flow: row wrap;
-    font-weight: bold;
     text-align: center;
 }
 
