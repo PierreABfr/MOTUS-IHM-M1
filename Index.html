@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div>
+<div id="page_jeu">
 <table id="grilleMotus">
     <tr id="grilleMotus1" class="motusLigne">
         <td id="grilleMotus1_1" class="motusBoite"></td>
@@ -59,20 +59,20 @@
         <td id="grilleMotus6_6" class="motusBoite"></td>
     </tr>
     <tr id="propositionMot">
-        <td><input id="champProposition1" class="motusBoite"></td>
-        <td><input id="champProposition2" class="motusBoite"></td>
-        <td><input id="champProposition3" class="motusBoite"></td>
-        <td><input id="champProposition4" class="motusBoite"></td>
-        <td><input id="champProposition5" class="motusBoite"></td>
-        <td><input id="champProposition6" class="motusBoite"></td>
+        <td><input id="champProposition1" class="motusBoite" required maxlength="1"></td>
+        <td><input id="champProposition2" class="motusBoite" required maxlength="1"></td>
+        <td><input id="champProposition3" class="motusBoite" required maxlength="1"></td>
+        <td><input id="champProposition4" class="motusBoite" required maxlength="1"></td>
+        <td><input id="champProposition5" class="motusBoite" required maxlength="1"></td>
+        <td><input id="champProposition6" class="motusBoite" required maxlength="1"></td>
     </tr>
     <tr id="zoneValider">
-        <td colspan="6"><a id="boutonValider">Valider</a></td>
+        <td colspan="6"><a id="boutonValider" onclick="validerMot()">Valider</a></td>
     </tr>
 
 </table>
 </div>
-
+<div id="page_principale" hidden="hidden">
     <div class="flexTitre" id="titre">
         <h1> MOTUS </h1>
     </div>
@@ -86,5 +86,7 @@
             <img src="./assets/bouton_jouer.png" alt="jouer">
         </div>
     </div>
+
+</div>
 </body>
 </html>
