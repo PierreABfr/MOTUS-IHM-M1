@@ -39,20 +39,24 @@ function verifierExistanceMot(mot){
  *       0 -> Non présent
  */
 function differencesMots(motPropose){
+    motCache = motCache.toUpperCase();
+    motPropose = motPropose.toUpperCase();
+
+    var jsonNbMalplace = {};
+
     var resultat = Array(motCache.length);
     for (var i = 0 ; i < motCache.length ; i++){
-        if(motCache[i].toUpperCase() == motPropose[i].toUpperCase()){
+        if(motCache[i] == motPropose[i]){
             resultat[i] = 2;
-        }else if(motCache.includes(motPropose[i].toUpperCase())){
-            resultat[i] = 1;
+        }else if(motCache.includes(motPropose[i])){
+            if(jsonNbMalplace[motPropose[i]] == undefined){
+                jsonNbMalplace[motPropose[i]]--;
+                resultat[i] = 1;
+            }
         }else{
             resultat[i] = 0;
+            jsonNbMalplace[motPropose[i]]++;
         }
-    }
-    // pour les mal placés, on doit vérifier si
-    // le nombre est bien respecté TODO
-    for(var i = 0 ; i < motCache.length ; i++){
-        // TODO TODO TODO TODO
     }
 
     return resultat;
@@ -63,7 +67,29 @@ function differencesMots(motPropose){
  * Remet tout les parametres à 0
  */
 function reinitialiserJeu(){
+    if(document.getElementById("grilleMotus"+(ligneActuelle+1)) == null){
+        //Cas ou le jeu est terminé (perdu),
+        //Il n'y a pas de ligne suivante (avec les points)
+        ligneActuelle--;
+    }
+    //Vider le tableau des propositions
+    for( var i = 0 ; i < ligneActuelle ; i++){
+        for( var j = 0 ; j < motCache.length ; j++){
+            var caseVisee = document.getElementById("grilleMotus"+(i+1)+"_"+(j+1));
+            caseVisee.style.backgroundColor = "blueviolet"
+            caseVisee.innerText = "";
+        }
+    }
+    //Vider les champs de saisie
+    for( var i = 1 ; i < document.getElementById("propositionMot").children.length+1 ; i++){
+        document.getElementById("champProposition"+i).value = "";
+    }
 
+    //Remettre les variables à leur état initial
+    motCache = obtenirMotAleatoire();
+    ligneActuelle = 1;
+    document.getElementById("message").innerText = "Entrez un mot de "+motCache.length+" lettres";
+    document.getElementById("zoneValider").disabled = "";
 }
 
 /**
@@ -71,18 +97,23 @@ function reinitialiserJeu(){
  * Vérifie la validité du mot proposé
  */
 function validerMot(){
+    if(document.getElementById("zoneValider").disabled == "true"){
+        return; //Bouton desactivé
+    }
     var motPropose = "";
+    var objetMessage = document.getElementById("message");
+    //lecture du mot proposé
     for (var i = 1 ; i < motCache.length+1 ; i++) {
         motPropose += document.getElementById("champProposition"+i).value;
     }
+    //Vérification de la longueur
     if (motPropose.length != motCache.length) {
-        //Cas d'erreur TODO
-        console.log("longeur");
+        objetMessage.innerText = "Le mot proposé n'est pas de la bonne longueur";
         return;
     }
+    //Vérification de l'existance
     if(!verifierExistanceMot(motPropose.toUpperCase())){
-        //Mot innexistant TODO
-        console.log("inconnu");
+        objetMessage.innerText = "Le mot proposé n'existe pas";
         return;
     }
     //Comparaison du mot
@@ -105,16 +136,26 @@ function validerMot(){
                 caseActuelle.style.backgroundColor = "green"
                 break;
             default:
-                //ERREUR TODO
+                objetMessage.innerText = "Erreur de comparaison";
                 break;
         }
     }
     //préparation ligne suivante
     ligneActuelle++;
-    if( document.getElementById("grilleMotus"+ligneActuelle) == undefined){
-        //FIN, Perdu TODO
+    if( document.getElementById("grilleMotus"+ligneActuelle) == null){
+        objetMessage.innerText = "Vous avez perdu !";
+        document.getElementById("zoneValider").disabled = "true";
         return;
     }
+
+    //Vérification de la victoire
+    if(resComparaison.includes(0) == false){
+        objetMessage.innerText = "Vous avez gagné !";
+        document.getElementById("zoneValider").disabled = "true";
+        return;
+    }
+
+    //Préparation de la ligne suivante
     for( var i = 0 ; i < ligneActuelle - 1 ; i++){
         for( var j = 0 ; j < motCache.length ; j++){
             var majCase = document.getElementById("grilleMotus"+ligneActuelle+"_"+(j+1));
@@ -129,6 +170,12 @@ function validerMot(){
     }
 
 
+    //Effacement des champs incorrects
+    for (var i = 0 ; i < motCache.length ; i++) {
+        if(resComparaison[i] != 2){
+            document.getElementById("champProposition"+(i+1)).value = "";
+        }
+    }
 
 }
 
@@ -137,7 +184,12 @@ function validerMot(){
  * Demarre le jeu
  */
 function demarrerJeu(){
+    reinitialiserJeu();
+    var page = document.getElementById("page_jeu");
+    page.hidden = false;
+
     var longeurMot = 6;
+
     do{
         motCache = obtenirMotAleatoire();
     }while(motCache.length != 6);
@@ -147,6 +199,7 @@ function demarrerJeu(){
     for (var i = 1 ; i < longeurMot ; i++) {
         ligneSelection.children[i].innerText = ".";
     }
+    miseEnPlaceEvenements();
 }
 
 /**
@@ -174,6 +227,38 @@ function deboggage(){
     }
     console.log("Résultat du test : "+(resultatsCorrespondants?"Positif":"Négatif") )
 }
+
+/**
+ * fonction miseEnPlaceEvenements
+ * Permet de mettre en place les événements
+ * par le clavier
+ */
+function miseEnPlaceEvenements(){
+    //Quand on ajoute une lettre dans un champ
+    //on passe au champ suivant (si il existe)
+    nombreChamps = document.getElementById("propositionMot").children.length;
+    addEventListener("keyup",function(e){
+        var idChamp = e.target.id;
+        //Si la touche appuyée est une lettre
+        if(idChamp != "champProposition"+nombreChamps){
+
+            if(e.key.length == 1){
+                document.getElementById("champProposition"+(parseInt(idChamp.charAt(idChamp.length-1))+1)).focus();
+            }
+        }
+        //Si la touche appuyée est la touche effacer
+        if(idChamp != "champProposition1") {
+            if (e.key == "Backspace") {
+                document.getElementById("champProposition" + (parseInt(idChamp.charAt(idChamp.length - 1)) - 1)).focus();
+            }
+        }
+        //Si la touche appuyée est la touche entrée
+        if(e.key == "Enter"){
+            validerMot();
+        }
+    });
+}
+
 
 /**
  * fonction init
