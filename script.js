@@ -203,6 +203,15 @@ function demarrerJeu(){
 }
 
 /**
+ * fonction afficherRegles
+ * Affiche les règles
+ */
+function afficherRegles(){
+    var regle = document.getElementById("page_regle");
+    regle.hidden = !regle.hidden;
+}
+
+/**
  * fonction deboggage
  * Permet de tester les fonctions
  */

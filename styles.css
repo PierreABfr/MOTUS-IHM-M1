@@ -14,6 +14,11 @@ body{
     height: 100%;
 }
 
+.surligner_vert{ background-color: green }
+.surligner_orange{ background-color: orange }
+.surligner_blueviolet{ background-color: blueviolet }
+.page_regle{ font-size: 20px }
+
 .cacher{
     margin-right: 150px;
 }
