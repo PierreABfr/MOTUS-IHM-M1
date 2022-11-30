@@ -120,7 +120,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 2px;
+    padding: 1em;
 }
 
 .motusLigne{
@@ -171,6 +171,28 @@ tr{
     padding:16px 31px;
     text-decoration:none;
     text-shadow:0px 1px 0px #2f6627;
+}
+
+#boutonAbandonner{
+    background:linear-gradient(to bottom, #c74444 5%, #bf2a2a 100%);
+    background-color: #c74444;
+    border-radius:28px;
+    border:1px solid #ab1818;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:17px;
+    padding:16px 31px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #662727;
+}
+
+#zoneMessage{
+    border:1px solid #9f7f02;
+    background-color: #ffde00;
+    margin: 1em;
+    padding: 0.3em;
 }
 
 input{

@@ -47,6 +47,7 @@ function differencesMots(motPropose){
     var resultat = Array(motCache.length);
     for (var i = 0 ; i < motCache.length ; i++){
         if(motCache[i] == motPropose[i]){
+            jsonNbMalplace[motPropose[i]]--
             resultat[i] = 2;
         }else if(motCache.includes(motPropose[i])){
             if(jsonNbMalplace[motPropose[i]] == undefined){
@@ -88,8 +89,13 @@ function reinitialiserJeu(){
     //Remettre les variables à leur état initial
     motCache = obtenirMotAleatoire();
     ligneActuelle = 1;
-    document.getElementById("message").innerText = "Entrez un mot de "+motCache.length+" lettres";
-    document.getElementById("zoneValider").disabled = "";
+    document.getElementById("message").innerText = "Entrez un mot";
+    document.getElementById("zoneActions").disabled = "";
+
+    //Réinitialiser le message
+    var message = document.getElementById("message")
+    message.innerText = "Entrez un mot";
+    message.removeAttribute("href","target");
 }
 
 /**
@@ -97,7 +103,7 @@ function reinitialiserJeu(){
  * Vérifie la validité du mot proposé
  */
 function validerMot(){
-    if(document.getElementById("zoneValider").disabled == "true"){
+    if(document.getElementById("zoneActions").disabled == "true"){
         return; //Bouton desactivé
     }
     var motPropose = "";
@@ -136,21 +142,30 @@ function validerMot(){
                 caseActuelle.style.backgroundColor = "green"
                 break;
             default:
-                objetMessage.innerText = "Erreur de comparaison";
+                //non présent
+                caseActuelle.style.backgroundColor = "blueviolet"
                 break;
         }
     }
     //préparation ligne suivante
     ligneActuelle++;
-    if( document.getElementById("grilleMotus"+ligneActuelle) == null){
-        objetMessage.innerText = "Vous avez perdu !";
+
+    //Vérification de la victoire
+    if(resComparaison.includes(0) == false){
+        //GAGNE
+        objetMessage.innerHTML = "Vous avez gagné !\nLa réponse est bien "+motCache;
+        objetMessage.href = "https://fr.wiktionary.org/w/index.php?search="+motCache.toLowerCase();
+        objetMessage.target = "_blank";
         document.getElementById("zoneValider").disabled = "true";
         return;
     }
 
-    //Vérification de la victoire
-    if(resComparaison.includes(0) == false){
-        objetMessage.innerText = "Vous avez gagné !";
+    //Vérification de la défaite
+    if( document.getElementById("grilleMotus"+ligneActuelle) == null){
+        //PERDU
+        objetMessage.innerText = "Vous avez perdu !\nLa réponse est : "+motCache;
+        objetMessage.href = "https://fr.wiktionary.org/w/index.php?search="+motCache.toLowerCase();
+        objetMessage.target = "_blank";
         document.getElementById("zoneValider").disabled = "true";
         return;
     }
@@ -170,13 +185,25 @@ function validerMot(){
     }
 
 
-    //Effacement des champs incorrects
-    for (var i = 0 ; i < motCache.length ; i++) {
-        if(resComparaison[i] != 2){
-            document.getElementById("champProposition"+(i+1)).value = "";
-        }
+    //Effacement des champs
+    for( var i = 1 ; i < document.getElementById("propositionMot").children.length+1 ; i++){
+        document.getElementById("champProposition"+i).value = "";
     }
 
+    //Focus sur le premier champ
+    document.getElementById("champProposition1").focus();
+
+}
+
+/**
+ * fonction abandonner
+ * Affiche le mot caché et arrête le jeu
+ */
+function abandonner(){
+    document.getElementById("message").innerText = "Vous avez abandonné !\nLa réponse est : "+motCache;
+    document.getElementById("zoneActions").disabled = "true";
+    document.getElementById("message").href = "https://fr.wiktionary.org/w/index.php?search="+motCache.toLowerCase();
+    document.getElementById("message").target = "_blank";
 }
 
 /**
@@ -200,6 +227,10 @@ function demarrerJeu(){
         ligneSelection.children[i].innerText = ".";
     }
     miseEnPlaceEvenements();
+
+    //Focus et préremplissage sur le premier champ
+    document.getElementById("champProposition1").focus();
+    document.getElementById("champProposition1").value = motCache[0];
 }
 
 /**
@@ -288,4 +319,5 @@ function init(){
     }
     fichier.send(null);
 }
+
 init()
