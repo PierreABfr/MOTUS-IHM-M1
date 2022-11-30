@@ -1,6 +1,6 @@
 h1 {
     color: rgba(208, 10, 10, 0.95);
-    text-shadow: 1px 1px 0px #000000
+    text-shadow: 1px 1px 0px #000000;
 }
 
 html, body { height : 80%; }
@@ -13,11 +13,15 @@ body{
     flex-direction: column;
     height: 100%;
 }
+
+.cacher{
+    margin-right: 150px;
+}
 .page_principale{
     display: flex;
     flex: 1;
     flex-direction : column ;
-    justify-content : center ;
+    justify-content : space-evenly ;
     width: 100%;
     height: 100%;
 }
@@ -26,10 +30,28 @@ body{
     width : 100%;
     height : 10%;
     align-items : center;
-    justify-content : space-evenly;
-    flex-direction : column-reverse;
+    justify-content : space-between;
+    flex-direction : row;
     margin-bottom: 10px;
 }
+
+#boutonRegle{
+    display:inline-block;
+    align-self: flex-end;
+    float: right;
+    background:linear-gradient(to bottom, #f5d1ad 5%, #f5a17c 100%);
+    border-radius:28px;
+    border:1px solid #000000;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:17px;
+    padding:16px 31px;
+    text-decoration:none;
+    text-shadow:1px 1px 0px #2f6627;
+    margin-left: 50px;
+}
+
 .remplissage{
     display : flex ;
     flex-direction : column ;
