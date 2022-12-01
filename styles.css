@@ -1,6 +1,8 @@
 h1 {
     color: rgba(208, 10, 10, 0.95);
-    text-shadow: 1px 1px 0px #000000;
+    text-shadow: 2px 2px 1px #000000;
+    font-family: Gabriola,Serif;
+    font-size: 50px;
 }
 
 html, body { height : 80%; }
@@ -17,7 +19,12 @@ body{
 .surligner_vert{ background-color: green }
 .surligner_orange{ background-color: orange }
 .surligner_blueviolet{ background-color: blueviolet }
-.page_regle{ font-size: 20px }
+.page_regle {
+    font-size: 20px;
+    border:1px solid #000000;
+    padding:4px 20px;
+    border-radius: 20px;
+}
 
 .cacher{
     margin-right: 150px;
