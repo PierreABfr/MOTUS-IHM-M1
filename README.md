@@ -36,7 +36,7 @@ Le jeu consiste à deviner un mot en proposant d'autres mots, avec comme indicat
 [Sujet complet](https://docs.google.com/document/d/1Zm464qi3GMnQlCeocBBhgWgTID81xMfnIfH-J0lePlk/edit#)
 
 ## Auteurs
-[Pierre-André Beaufort](https://github.com/pierrepier5)
+[Pierre-André Beaufort](https://github.com/PierreABfr)
 
 [Nicolas Bernicot](https://github.com/Nicolas-BT)
 
