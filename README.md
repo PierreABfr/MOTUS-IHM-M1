@@ -1,6 +1,8 @@
 # MOTUS-IHM-M1
 Motus sur Web en JavaScript/css/html dans le cadre de l'UE IHM (Interface Homme-Machine) en Master 1 à l'UBO (Université de Brest Occidentale) pour le **8 Décembre 2022**
 
+[https://github.com/PierreABfr/MOTUS-IHM-M1](https://github.com/PierreABfr/MOTUS-IHM-M1)
+
 ## Projet
 ### Description
 Motus provient d'un jeu télévisé diffusé sur France 2.
@@ -34,6 +36,9 @@ Le jeu consiste à deviner un mot en proposant d'autres mots, avec comme indicat
 - ✓ Ne pas avoir copié/coller le projet à partir d’internet ! Tous vos projets seront testés à l’aide d’outils anti-plagiat.
 
 [Sujet complet](https://docs.google.com/document/d/1Zm464qi3GMnQlCeocBBhgWgTID81xMfnIfH-J0lePlk/edit#)
+
+## Historique des versions
+![img](https://github.com/PierreABfr/MOTUS-IHM-M1/blob/main/assets/histo.png)
 
 ## Auteurs
 [Pierre-André Beaufort](https://github.com/PierreABfr)
