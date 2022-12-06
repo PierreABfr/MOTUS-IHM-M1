@@ -8,7 +8,8 @@ h1 {
 html, body { height : 80%; }
 
 body{
-    background-image: url("./assets/bg_motus.jpg");
+    /*background-image: url("./assets/bg_motus.jpg");*/
+    background-color: #bbada0;
     margin:0;
     padding:0;
     display: flex;
@@ -18,7 +19,7 @@ body{
 
 .surligner_vert{ background-color: green }
 .surligner_orange{ background-color: orange }
-.surligner_blueviolet{ background-color: blueviolet }
+.surligner_blueviolet{ background-color: #a1869e}
 .page_regle {
     font-size: 20px;
     border:1px solid #000000;
@@ -51,7 +52,7 @@ body{
     display:inline-block;
     align-self: flex-end;
     float: right;
-    background:linear-gradient(to bottom, #f5d1ad 5%, #f5a17c 100%);
+    background:linear-gradient(to bottom, #4c8d96 5%, #3c6d96 100%);
     border-radius:28px;
     border:1px solid #000000;
     cursor:pointer;
@@ -84,7 +85,7 @@ body{
     align-items: center;
     border-radius: 3em;
     border-style: solid;
-    background-color: #0bccef;
+    background-color: #d1c6ad;
     margin: auto;
     /*padding: 1rem;*/
 }
@@ -137,7 +138,7 @@ body {
 }
 
 .motusBoite{
-    background-color: blueviolet;
+    background-color: #a1869e;
     padding: 2px;
     margin: 2px;
     width: 50px;
