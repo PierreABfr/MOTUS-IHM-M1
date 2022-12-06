@@ -52,7 +52,7 @@ body{
     display:inline-block;
     align-self: flex-end;
     float: right;
-    background:linear-gradient(to bottom, #4c8d96 5%, #3c6d96 100%);
+    background:linear-gradient(to bottom, #539ca6 30%, #3c6d96 90%);
     border-radius:28px;
     border:1px solid #000000;
     cursor:pointer;
@@ -104,8 +104,8 @@ img{
     justify-content: center;
     align-items: center;
     align-content: center;
-    width: 10em;
-    height: 5em;
+    width: 17em;
+    height: 6em;
     /*margin-top: 50%;*/
 }
 
