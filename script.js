@@ -77,7 +77,7 @@ function reinitialiserJeu(){
     for( var i = 0 ; i < ligneActuelle ; i++){
         for( var j = 0 ; j < motCache.length ; j++){
             var caseVisee = document.getElementById("grilleMotus"+(i+1)+"_"+(j+1));
-            caseVisee.style.backgroundColor = "blueviolet"
+            caseVisee.style.backgroundColor = "#a1869e";
             caseVisee.innerText = "";
         }
     }
