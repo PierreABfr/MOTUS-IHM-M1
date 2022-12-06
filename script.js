@@ -243,7 +243,14 @@ function demarrerJeu(){
  */
 function afficherRegles(){
     var regle = document.getElementById("page_regle");
+    var page = document.getElementById("page_jeu");
     regle.hidden = !regle.hidden;
+    if (!page.hidden && !regle.hidden){
+        page.hidden=true;
+    }
+    else if (regle.hidden && motCache) {
+        page.hidden=false;
+    }
 }
 
 /**
