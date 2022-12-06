@@ -131,7 +131,7 @@ function validerMot(){
         switch (resComparaison[i]){
             case 0:
                 //non présent
-                caseActuelle.style.backgroundColor = "blueviolet"
+                caseActuelle.style.backgroundColor = "#a1869e";
                 break;
             case 1:
                 //présent, mal placé
@@ -143,7 +143,7 @@ function validerMot(){
                 break;
             default:
                 //non présent
-                caseActuelle.style.backgroundColor = "blueviolet"
+                caseActuelle.style.backgroundColor = "#a1869e"
                 break;
         }
     }
@@ -217,6 +217,7 @@ function demarrerJeu(){
     reinitialiserJeu();
     var page = document.getElementById("page_jeu");
     page.hidden = false;
+    document.getElementsByClassName("boutonJouer")[0].children[0].src = "assets/rejouer.png";
 
     var longeurMot = 6;
 
