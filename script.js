@@ -319,7 +319,7 @@ function init(){
     //Chargement du dictionnaire
     var fichier = new XMLHttpRequest();
     //Dictionnaire "Officiel Du Scrabble V6"
-    fichier.open("GET", "/assets/ods6.txt", true);
+    fichier.open("GET", "/MOTUS-IHM-M1/assets/ods6.txt", true);
     fichier.onreadystatechange = function () {
         if(fichier.readyState === 4) {
             if(fichier.status === 200 || fichier.status == 0) {
