@@ -156,7 +156,7 @@ function validerMot(){
         objetMessage.innerHTML = "Vous avez gagné !\nLa réponse est bien "+motCache;
         objetMessage.href = "https://fr.wiktionary.org/w/index.php?search="+motCache.toLowerCase();
         objetMessage.target = "_blank";
-        document.getElementById("zoneValider").disabled = "true";
+        document.getElementById("zoneActions").disabled = "true";
         return;
     }
 
@@ -166,7 +166,7 @@ function validerMot(){
         objetMessage.innerText = "Vous avez perdu !\nLa réponse est : "+motCache;
         objetMessage.href = "https://fr.wiktionary.org/w/index.php?search="+motCache.toLowerCase();
         objetMessage.target = "_blank";
-        document.getElementById("zoneValider").disabled = "true";
+        document.getElementById("zoneActions").disabled = "true";
         return;
     }
 
@@ -200,6 +200,9 @@ function validerMot(){
  * Affiche le mot caché et arrête le jeu
  */
 function abandonner(){
+    if(document.getElementById("zoneActions").disabled == "true"){
+        return; //Bouton desactivé
+    }
     document.getElementById("message").innerText = "Vous avez abandonné !\nLa réponse est : "+motCache;
     document.getElementById("zoneActions").disabled = "true";
     document.getElementById("message").href = "https://fr.wiktionary.org/w/index.php?search="+motCache.toLowerCase();
